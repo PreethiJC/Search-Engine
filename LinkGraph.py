@@ -34,7 +34,8 @@ while (scroll_size > 0):
                 linkgraph[ol].append(inlink)
             else:
                 linkgraph[ol] = [inlink]
-
+                
+#TODO Change the provided path to the path where you want to save the linkgraph
 outputFile = open("/Users/Zion/Desktop/NEU/Sem 2/Information Retrieval/Files1/linkgraph.txt", "w")
 for ol in linkgraph:
     line = ol
