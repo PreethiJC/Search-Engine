@@ -213,8 +213,8 @@ def parseUrl(f, soup):
 
 
     splitF = f.split('/')
-    textDesign = "<DOCNO>"+f+"</DOCNO>\n<TEXT>"+cleanText+"</TEXT>\n<OUTLINKS>"+"\n".join(frontier[f].outLinks)+"</OUTLINKS>\n<AUTHOR>Namrata</AUTHOR>"
-    outputFile = open("/Users/Zion/Desktop/Desktop - Zion/NEU/Sem 2/Information Retrieval/Namrata/%s" % fileName + splitF[-1], "w")
+    textDesign = "<DOCNO>"+f+"</DOCNO>\n<TEXT>"+cleanText+"</TEXT>\n<OUTLINKS>"+"\n".join(frontier[f].outLinks)+"</OUTLINKS>\n<AUTHOR>Preethi</AUTHOR>"
+    outputFile = open("/Users/Zion/Desktop/Desktop - Zion/NEU/Sem 2/Information Retrieval/Files/%s" % fileName + splitF[-1], "w")
     outputFile.write(textDesign)
     outputFile.close()
     
