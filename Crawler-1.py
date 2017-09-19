@@ -210,10 +210,9 @@ def parseUrl(f, soup):
     else:
         for para in soup.find_all("p"):
             cleanText += para.text + " "
-
-
     splitF = f.split('/')
-    textDesign = "<DOCNO>"+f+"</DOCNO>\n<TEXT>"+cleanText+"</TEXT>\n<OUTLINKS>"+"\n".join(frontier[f].outLinks)+"</OUTLINKS>\n<AUTHOR>Preethi</AUTHOR>"
+    textDesign = "<DOCNO>"+f+"</DOCNO>\n<TEXT>"+cleanText+"</TEXT>\n<OUTLINKS>"+"\n".join(frontier[f].outLinks)+"</OUTLINKS>\n<AUTHOR>Preethi</AUTHOR>"  
+    #TODO Change the provided path to the path where you want to save the processed document
     outputFile = open("/Users/Zion/Desktop/Desktop - Zion/NEU/Sem 2/Information Retrieval/Files/%s" % fileName + splitF[-1], "w")
     outputFile.write(textDesign)
     outputFile.close()
