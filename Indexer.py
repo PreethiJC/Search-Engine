@@ -5,6 +5,7 @@ import os
 import re
 
 es = Elasticsearch()
+#TODO Change the provided path to the path where the processed documents are saved
 path = "/Users/Zion/Desktop/NEU/Sem 2/Information Retrieval/Files_demo/"
 start_time = time.time()
 i = 0
