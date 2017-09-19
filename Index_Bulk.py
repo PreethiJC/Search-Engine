@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import time
 
 es = Elasticsearch(hosts=['localhost:9200'])
+#TODO Change the provided path to the path where the processed documents are saved
 path = "/Users/Zion/Desktop/NEU/Sem 2/Information Retrieval/Files1/"
 start_time = time.time()
 i = 0
