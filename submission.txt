@@ -1,0 +1,59 @@
+1) SEED URLs :
+
+1518 WORLD WAR 2
+	http://www.history.com/topics/world-war-ii
+	http://en.wikipedia.org/wiki/World_War_II
+151802  United States battles won in WW2
+  http://en.wikipedia.org/wiki/List_of_World_War_II_battles_involving_the_United_States
+  http://en.wikipedia.org/wiki/Military_history_of_the_United_States_during_World_War_II
+
+****************************************
+
+2) Count of unique urls indexed individually :
+
+Namrata - 20000
+Preethi - 20000
+Vinod - 20000
+
+****************************************
+
+3) Time taken to crawl : 5 hours
+
+****************************************
+
+4) Total disk space size of your crawl : 767.8 MB
+
+****************************************
+
+5) Time taken to merge : 2 hours
+
+****************************************
+
+6) Count of unique urls in Merged Index :
+
+Namrata - 18408
+Preethi - 14984
+Vinod - 16305
+
+****************************************
+
+7) Merged ES index size : 2919883842 bytes or 2.92 GB
+
+****************************************
+
+8) How do you decide which links to put in your Frontier list and which to ignore.
+I have created a list of keywords that I think are relevant to my query. So, if any
+of those keywords appear in the link text, then I am adding it as a valid url to scroll.
+Also, I have some blacklisted urls that identify the urls that might be valid but are irrelevant.
+
+****************************************
+
+9) How do you decide which link to crawl next, from your Frontier list
+I am following a BFS approach. My frontier will contain only a single wave at a time. The next
+wave is stored in another dictionary. Also, the next url from the frontier is chosen based on the highest
+inlink count. If they have same number of inlinks, then the url that has been in frontier for the longest
+is taken. After all the urls in frontier get flagged as visited, Frontier
+is emptied, and the urls stored in the other dictionary is added to frontier. This goes on till
+I have visited 20000 urls. 
+
+****************************************
