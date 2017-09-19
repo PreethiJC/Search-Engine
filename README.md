@@ -89,7 +89,19 @@ The goal of this program is to write a link graph reporting all out-links from e
    Example,
 
         $ python3 Indexer.py 
-        
+
+## Merging team indexes
+
+My team used individual crawls to be merged at the end, so we had to simulate a realistic environment: merge indexes (or the crawled data) into one ES index. Merging should happen as independent agents : everyone updates the index independently while ES servers are connected. Meaning not in a Master-Slave or Server-Client manner. This is team work.
+
+Once all team members are finished with their crawls, the documents are combined to create a vertical search engine. It is required that team computer/ES are connected are the time of merging, and that each team member runs merging code against the merged index in an independent manner (no master-slave design)
+
+## Vertical Search Engine
+
+Add all 60,000 documents to an elasticsearch index, using the canonical URL as the document ID for de-duplication.
+
+We used [Calaca](https://github.com/romansanchez/Calaca) as our interface. Our search engine allows users to enter text queries, and display elasticsearch results to those queries from our index. The result list should contain at minimum the URL to the page you crawled.
+
 ## Contributing
 1. Fork it!
 2. Create your feature branch: ```$ git checkout -b my-new-feature```
@@ -98,5 +110,5 @@ The goal of this program is to write a link graph reporting all out-links from e
 5. Submit a pull request :D
 
 ## Authors
-Canonicalizer.py - Vinod Vishwanath
+Canonicalizer.py - Vinod Vishwanath  
 The remaining .py files - Preethi Chavely
