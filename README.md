@@ -54,3 +54,38 @@ Once a web page is downloaded, it needs to be parsed in order to update the fron
 2. Extract the document text, stripped of all HTML formatting, JavaScript, CSS, and so on. Write the document text to a file in the same format as the AP89 corpus, as described below.  
    Use the canonical URL as the DOCNO. If the page has a <title> tag, store its contents in a <HEAD> element in the file. 
 3. Store the entire HTTP response separately.
+
+#### *Indexer.py*
+The goal of this program is to parse the documents created by Crawler-1.py and send them to my elasticsearch instance.
+
+#### *LinkGraph.py*
+The goal of this program is to write a link graph reporting all out-links from each URL crawled and all the inlinks encountered (obviously there will be inlinks on the web that aren't discovered).
+
+## Getting Started
+
+* Clone this repository.
+  ```
+  $ git clone https://github.com/PreethiJC/Search-Engine.git
+  ```
+* Download and install [elasticsearch](https://www.elastic.co), and the [kibana](https://www.elastic.co/products/kibana) plugin
+
+* Install these libraries:
+  * Beautiful Soup 4
+    ```
+    $ pip3 install bs4
+    ```
+  * Elasticsearch
+    ```
+    $ pip3 install elasticsearch
+    ```
+    
+## Execution
+1. Follow the TODO comments to make changes in the program to ensure that it runs on your system.
+2. Run the individual programs in the following order
+   1. Crawler-1.py
+   2. Indexer.py
+   3. LinkGraph.py
+   
+   Example,
+
+        $ python Indexer.py 
