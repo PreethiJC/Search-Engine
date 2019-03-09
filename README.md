@@ -1,5 +1,10 @@
 # Search-Engine
-World War II Search Engine
+
+## Overview
+
+A vertical search engine focused on World War II. Created by using Elasticsearch and a web crawler to crawl Internet documents to construct a document collection related to WW II. 
+
+## Design
 
 #### Canonicalizer.py
 The purpose of this program is to canonicalize the URLs. Many URLs can refer to the same web resource. In order to ensure that the program crawls 20,000 distinct web sites, the following canonicalization rules should be applied to all URLs encountered.
@@ -61,6 +66,20 @@ The goal of this program is to parse the documents created by Crawler-1.py and s
 #### *LinkGraph.py*
 The goal of this program is to write a link graph reporting all out-links from each URL crawled and all the inlinks encountered (obviously there will be inlinks on the web that aren't discovered).
 
+## Design Choices
+
+#### Merging team indexes
+
+My team used individual crawls to be merged at the end, so we had to simulate a realistic environment: merge indexes (or the crawled data) into one ES index. Merging should happen as independent agents : everyone updates the index independently while ES servers are connected. Meaning not in a Master-Slave or Server-Client manner. This is team work.
+
+Once all team members are finished with their crawls, the documents are combined to create a vertical search engine. It is required that team computer/ES are connected are the time of merging, and that each team member runs merging code against the merged index in an independent manner (no master-slave design)
+
+#### Vertical Search Engine
+
+Add all 60,000 documents to an elasticsearch index, using the canonical URL as the document ID for de-duplication.
+
+We used [Calaca](https://github.com/romansanchez/Calaca) as our interface. Our search engine allows users to enter text queries, and display elasticsearch results to those queries from our index. The result list should contain at minimum the URL to the page you crawled.
+
 ## Getting Started
 
 * Clone this repository.
@@ -89,18 +108,6 @@ The goal of this program is to write a link graph reporting all out-links from e
    Example,
 
         $ python3 Indexer.py 
-
-## Merging team indexes
-
-My team used individual crawls to be merged at the end, so we had to simulate a realistic environment: merge indexes (or the crawled data) into one ES index. Merging should happen as independent agents : everyone updates the index independently while ES servers are connected. Meaning not in a Master-Slave or Server-Client manner. This is team work.
-
-Once all team members are finished with their crawls, the documents are combined to create a vertical search engine. It is required that team computer/ES are connected are the time of merging, and that each team member runs merging code against the merged index in an independent manner (no master-slave design)
-
-## Vertical Search Engine
-
-Add all 60,000 documents to an elasticsearch index, using the canonical URL as the document ID for de-duplication.
-
-We used [Calaca](https://github.com/romansanchez/Calaca) as our interface. Our search engine allows users to enter text queries, and display elasticsearch results to those queries from our index. The result list should contain at minimum the URL to the page you crawled.
 
 ## Contributing
 1. Fork it!
